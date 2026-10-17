@@ -1,0 +1,143 @@
+{
+  "version": "ASMR-1",
+  "origin": "Locally synthesized original foley; no third-party recordings",
+  "sampleRate": 44100,
+  "clips": [
+    {
+      "clip": "tap",
+      "duration": 0.2,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.07846357738518642,
+      "bytes": 35280
+    },
+    {
+      "clip": "tap-02",
+      "duration": 0.2,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.05778728980711784,
+      "bytes": 35280
+    },
+    {
+      "clip": "tap-03",
+      "duration": 0.2,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.06327504560081294,
+      "bytes": 35280
+    },
+    {
+      "clip": "crack",
+      "duration": 0.32,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.07796072139812142,
+      "bytes": 56448
+    },
+    {
+      "clip": "break",
+      "duration": 0.85,
+      "channels": 2,
+      "peak": 0.4799999999999999,
+      "rms": 0.06840773235036801,
+      "bytes": 149940
+    },
+    {
+      "clip": "squish",
+      "duration": 0.66,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.09066218505134242,
+      "bytes": 116424
+    },
+    {
+      "clip": "squish-02",
+      "duration": 0.66,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.10740855115016615,
+      "bytes": 116424
+    },
+    {
+      "clip": "squish-03",
+      "duration": 0.66,
+      "channels": 2,
+      "peak": 0.4799999999999999,
+      "rms": 0.0908241286520024,
+      "bytes": 116424
+    },
+    {
+      "clip": "release",
+      "duration": 0.56,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.09969999733838728,
+      "bytes": 98784
+    },
+    {
+      "clip": "release-02",
+      "duration": 0.56,
+      "channels": 2,
+      "peak": 0.48000000000000004,
+      "rms": 0.08330579685620254,
+      "bytes": 98784
+    },
+    {
+      "clip": "release-03",
+      "duration": 0.56,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.08191864917525345,
+      "bytes": 98784
+    },
+    {
+      "clip": "pour",
+      "duration": 1.65,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.10011799144708063,
+      "bytes": 291060
+    },
+    {
+      "clip": "liquid-loop",
+      "duration": 2.8,
+      "channels": 2,
+      "peak": 0.4,
+      "rms": 0.08602209574107544,
+      "bytes": 493920
+    },
+    {
+      "clip": "bubble",
+      "duration": 0.24,
+      "channels": 2,
+      "peak": 0.4799999999999999,
+      "rms": 0.10368239810730859,
+      "bytes": 42336
+    },
+    {
+      "clip": "bubble-02",
+      "duration": 0.24,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.1063964621167839,
+      "bytes": 42336
+    },
+    {
+      "clip": "bubble-03",
+      "duration": 0.24,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.1075021095195059,
+      "bytes": 42336
+    },
+    {
+      "clip": "bubble-04",
+      "duration": 0.24,
+      "channels": 2,
+      "peak": 0.48,
+      "rms": 0.08936925608613853,
+      "bytes": 42336
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b057e4fa14bc4028b644849209fb3db, type: 3}
+  m_Name: egg_crystal
+  m_EditorClassIdentifier: Assembly-CSharp::ToyEconomy.EggDefinition
+  eggId: crystal
+  displayName: Crystal
+  price: 200
+  fragmentCount: 200
+  hitsToBreak: 12
+  materialProfile: {fileID: 11400000, guid: 4f4c96970e6e14f0397ac97d9a3a4fb2, type: 2}
+  fracturedPrefab: {fileID: 8308441706180118211, guid: eb9800de7d3814d98926d36c714488f8, type: 3}
+  color: {r: 0.34, g: 0.77, b: 0.87, a: 1}
+  possibleToys:
+  - {fileID: 11400000, guid: 920a59c55905f42f5a7ea192591424b2, type: 2}

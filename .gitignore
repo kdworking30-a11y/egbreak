@@ -1,0 +1,43 @@
+# Unity generated files
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/Captures/
+
+# IDE and OS files
+.vs/
+.vscode/
+.idea/
+.DS_Store
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Local credentials / signing
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pfx
+/Assets/StreamingAssets/aa/
+
+# Local package manifest backup
+/Packages/*.bak

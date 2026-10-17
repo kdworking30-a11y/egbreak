@@ -1,0 +1,10 @@
+Unity: 6000.3.10f1 | Platform: OSXEditor | Editor: True
+Device: MacBookPro18,3 | GPU: Apple M1 Pro
+Resolution: 538x1075 | cap: 60 | quality: PC
+Pipeline: Mobile_RPAsset | fragments: 24 | slime vertices: 425
+Frame pacing only (unscaledDeltaTime); not CPU/GPU timings. Two-second warm-up per phase. First two frames after start/Editor pause are excluded. P95 nearest-rank.
+phase,samples,mean_ms,p95_ms,max_ms,fps,over_16.67_percent
+intact,181,16.658,18.351,19.823,60.0,52.5
+cracked,180,16.731,18.513,40.406,59.8,55.0
+fracture_cycles,180,16.666,18.655,19.096,60.0,43.9
+slime_drag,180,16.659,18.547,20.986,60.0,45.0

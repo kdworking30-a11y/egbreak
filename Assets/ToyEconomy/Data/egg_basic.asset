@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b057e4fa14bc4028b644849209fb3db, type: 3}
+  m_Name: egg_basic
+  m_EditorClassIdentifier: Assembly-CSharp::ToyEconomy.EggDefinition
+  eggId: basic
+  displayName: Basic
+  price: 10
+  fragmentCount: 52
+  hitsToBreak: 6
+  materialProfile: {fileID: 11400000, guid: 6ff7a6d31fb284b5c83f8cd65ab2c5bf, type: 2}
+  fracturedPrefab: {fileID: 5297458356935814694, guid: ba00ca628284a4491b69a1bf5650e6ce, type: 3}
+  color: {r: 0.98, g: 0.79, b: 0.44, a: 1}
+  possibleToys:
+  - {fileID: 11400000, guid: 7351a36fb8474479c9d6b91ba057e516, type: 2}
+  - {fileID: 11400000, guid: cdcb861d58dae46d082c5b665865a029, type: 2}

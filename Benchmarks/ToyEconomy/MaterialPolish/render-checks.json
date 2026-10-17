@@ -1,0 +1,33 @@
+{
+    "passed": true,
+    "checks": [
+        "Main camera generates URP opaque color for refraction",
+        "Buy Basic into material showcase",
+        "HDR reflection cubemap and roughness mip chain: Basic",
+        "Optical shell still grants exactly one productive reward: Basic",
+        "Buy Chocolate into material showcase",
+        "HDR reflection cubemap and roughness mip chain: Chocolate",
+        "Optical shell still grants exactly one productive reward: Chocolate",
+        "Buy Crystal into material showcase",
+        "HDR reflection cubemap and roughness mip chain: Crystal",
+        "Transparent optical shader: Crystal",
+        "Physical IOR set: Crystal",
+        "Rendered pixels change when cubemap reflection is disabled: Crystal 0.04428763",
+        "Rendered pixels change when screen refraction is disabled: Crystal 0.02767165",
+        "Optical shell still grants exactly one productive reward: Crystal",
+        "Buy Ice into material showcase",
+        "HDR reflection cubemap and roughness mip chain: Ice",
+        "Transparent optical shader: Ice",
+        "Physical IOR set: Ice",
+        "Rendered pixels change when cubemap reflection is disabled: Ice 0.01863045",
+        "Rendered pixels change when screen refraction is disabled: Ice 0.01291238",
+        "Local thaw visibly clears frost: 0.02055435",
+        "Optical shell still grants exactly one productive reward: Ice"
+    ],
+    "errors": [],
+    "iceThawDelta": 0.020554345101118089,
+    "iceReflectionDelta": 0.01863045245409012,
+    "iceRefractionDelta": 0.012912377715110779,
+    "crystalReflectionDelta": 0.044287629425525668,
+    "crystalRefractionDelta": 0.02767164632678032
+}
