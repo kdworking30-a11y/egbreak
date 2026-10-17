@@ -17,7 +17,7 @@ namespace ToyEconomy.Editor {
   void Check(bool condition,string message){if(!condition)throw new Exception("FAIL: "+message);report.checks.Add(message);}
   IEnumerator Start(){Application.runInBackground=true;yield return null;var routine=Verify();bool running=true;while(running){object next=null;try{running=routine.MoveNext();if(running)next=routine.Current;}catch(Exception e){report.errors.Add(e.ToString());running=false;}if(running)yield return next;}report.passed=report.errors.Count==0;File.WriteAllText("/tmp/optical-material-verification.json",JsonUtility.ToJson(report,true));Debug.Log("[Optical Verification] "+(report.passed?"PASS":"FAIL"));}
   IEnumerator Verify(){
-   game=FindFirstObjectByType<GameLoopController>();var camera=Camera.main;var data=camera.GetComponent<UniversalAdditionalCameraData>();
+   game=FindFirstObjectByType<GameLoopController>();game.Progression.VerificationBypass=true;var camera=Camera.main;var data=camera.GetComponent<UniversalAdditionalCameraData>();
    Check(data!=null && data.requiresColorTexture,"Main camera generates URP opaque color for refraction");
    game.Economy.Earn(1000);yield return null;
    for(int index=0;index<game.eggs.Length;index++){

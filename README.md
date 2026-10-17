@@ -15,8 +15,8 @@ Toys earn coins → buy eggs → crack/melt shells → unlock one productive toy
 - `docs/HANDOFF.md`: implemented behavior, latest changes, validation and remaining gaps.
 - `docs/GAME_PLAN.md`: design plan and roadmap.
 - `CLAUDE.md` and `.claude/skills/egg-unity-dev/`: Claude Code continuation skill and Unity runbook.
-- `Benchmarks/ToyEconomy/CrystalDepthFix/`: latest render evidence and reports, **32 render checks + 95 gameplay checks passed** in Editor Play Mode on the source project before this repository snapshot. This copied checkout has not been independently opened/tested yet.
+- `Benchmarks/ToyEconomy/CrystalDepthFix/`: latest render evidence and reports, **32 render checks + 95 gameplay checks passed** in Editor Play Mode on the source project before this repository snapshot. The repository has since been opened in Unity and played normally. New expansion evidence: `Benchmarks/ToyEconomy/IdleProgression/` (93 idle/save, 95 material gameplay, 32 optical checks in isolated Play Mode).
 
-The latest optical fix increases Ice/Crystal density, corrects depth occlusion, hides shared internal fracture faces and clears debris from the reward screen. Mobile device profiling, save/offline progression and final art/audio remain unfinished. Earlier EggLab work is retained; see `README-EggLab.md`.
+The idle expansion adds egg unlock milestones, a three-tool upgrade shop, garden income boosts, local saves and up to four hours of offline toy income. See `docs/IDLE_DESIGN.md` for tuning. The optical fix increases Ice/Crystal density, corrects depth occlusion, hides shared internal fracture faces and clears debris from the reward screen. Mobile device profiling and final art/audio remain unfinished. Earlier EggLab work is retained; see `README-EggLab.md`.
 
 Assets and `.meta`, Packages and ProjectSettings are committed. Unity cache, IDE output, local logs and build artifacts are excluded.

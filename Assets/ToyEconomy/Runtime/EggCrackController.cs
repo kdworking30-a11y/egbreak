@@ -4,6 +4,8 @@ using UnityEngine;
 namespace ToyEconomy {
  public sealed class EggCrackController : MonoBehaviour {
   public Material shellMaterial;
+  public float TapPower=1,ChargeSpeed=1,MeltPower=1;
+  public Func<ToyDefinition,bool> IsOwned;
   public EggDefinition ActiveEgg {get;private set;}
   public ToyDefinition PendingToy {get;private set;}
   public int Hits {get;private set;}
@@ -54,13 +56,14 @@ namespace ToyEconomy {
     if(pool.Count>1 && lastRewards.TryGetValue(egg,out var last) && pool[0]==last){int j=pool.FindIndex(t=>t!=last);if(j>0){var swap=pool[0];pool[0]=pool[j];pool[j]=swap;}}
     bag=new Queue<ToyDefinition>(pool);bags[egg]=bag;
    }
+   if(IsOwned!=null){int rotations=bag.Count;bool hasNew=false;foreach(var toy in bag)if(!IsOwned(toy)){hasNew=true;break;}if(hasNew)while(rotations-->0 && IsOwned(bag.Peek()))bag.Enqueue(bag.Dequeue());}
    var reward=bag.Dequeue();lastRewards[egg]=reward;return reward;
   }
   public void Hit(){HitAtScreen(new Vector2(Screen.width*.5f,Screen.height*.53f));}
   public void HitAtScreen(Vector2 screen){
    if(!IsCracking || (!SimpleControls && Interaction!=EggInteractionKind.Tap))return;
    if(!TryImpact(screen,out Vector3 impact))return;
-   Hits++;float progress=SimpleControls?Progress+1f/6:Mathf.Clamp01((float)Hits/ActiveEgg.hitsToBreak);
+   Hits++;float progress=SimpleControls?Progress+1f/6:Mathf.Clamp01(Progress+TapPower/ActiveEgg.hitsToBreak);
    BreakTo(Mathf.Min(1,progress+.00001f),impact,false);
   }
   public void BeginGesture(Vector2 screen){
@@ -70,14 +73,14 @@ namespace ToyEconomy {
   void Update(){
    if(!IsHolding || !IsCracking)return;
    float now=Time.unscaledTime;float elapsed=Mathf.Max(0,now-gestureUpdated);gestureUpdated=now;
-   Charge=Mathf.Clamp01(Charge+elapsed/ActiveEgg.materialProfile.chargeSeconds);
+   Charge=Mathf.Clamp01(Charge+elapsed*ChargeSpeed/ActiveEgg.materialProfile.chargeSeconds);
    if(shellRoot!=null)shellRoot.transform.localScale=new Vector3(1+Charge*.025f,1-Charge*.045f,1+Charge*.025f);
    ApplyStress(Charge);Changed?.Invoke();
   }
   public void EndGesture(Vector2 screen){
    if(!IsHolding || !IsCracking)return;
    float elapsed=Mathf.Max(0,Time.unscaledTime-gestureUpdated);
-   Charge=Mathf.Clamp01(Charge+elapsed/ActiveEgg.materialProfile.chargeSeconds);
+   Charge=Mathf.Clamp01(Charge+elapsed*ChargeSpeed/ActiveEgg.materialProfile.chargeSeconds);
    float amount=Mathf.Lerp(ActiveEgg.materialProfile.shortPressProgress,1f/ActiveEgg.materialProfile.breaksToOpen,Charge);
    if(TryImpact(gesturePoint,out Vector3 impact)){Hits++;carry=Mathf.Min(1,Mathf.Max(carry,Progress)+amount);CancelGesture();BreakTo(carry,impact,false);}else CancelGesture();
   }
@@ -89,7 +92,7 @@ namespace ToyEconomy {
    // A frame has a fixed thermal budget, regardless of input event frequency.
    if(rubFrame!=Time.frameCount){rubFrame=Time.frameCount;rubFrameBudget=Mathf.Min(.05f,Time.unscaledDeltaTime);}
    float budget=Mathf.Min(rubFrameBudget,Mathf.Min(seconds,.05f));if(budget<=0)return;rubFrameBudget-=budget;
-   float energy=budget*ActiveEgg.materialProfile.meltPerSecond*Mathf.Clamp01(distance/.025f);
+   float energy=budget*MeltPower*ActiveEgg.materialProfile.meltPerSecond*Mathf.Clamp01(distance/.025f);
    float radius=ActiveEgg.materialProfile.meltRadius;
    var thawed=new List<Transform>();float total=DetachedCount;
    foreach(var part in fragments){

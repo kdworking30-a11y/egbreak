@@ -201,3 +201,19 @@ Skill không cài MCP, mở rộng permission hay tự deploy. Nếu Claude ở 
 - Mới nhất: **32 render checks + 95 gameplay checks PASS, zero captured errors** trong Editor Play Mode trên bản tạm. Đảo sortingOrder sau khi debris rơi hết có ảnh không thay đổi ở cả Ice/Crystal. Có ảnh intact / thin comparison / partial / partial-settled / reward.
 - Artifact: `Benchmarks/ToyEconomy/CrystalDepthFix/`. Source mới: OpticalGlass, imported RewardQuadReveal_URP (thêm depth option mặc định tắt), GameLoopController, EggCrackController, OpticalCutFaceVisibility, OpticalMaterialSetup, OpticalMaterialVerification và bốn optical materials.
 - Giới hạn: matching mặt phẳng có lượng tử hóa, cần kiểm tra lại nếu thay bộ mesh fracture. Chưa profile runtime mesh allocation/update hoặc GPU trên mobile.
+
+## 13. Idle progression và tools — 18/10/2026
+
+Source đang làm việc là repo `/Users/khoa/Documents/GitHub/egbreak`, đã được mở trong Unity Editor riêng. Project cũ `My project` không nhận các thay đổi idle này.
+
+- Mở Chocolate khi hoàn tất 3 egg, Ice ở 6, Crystal ở 10. Gate kiểm tra ở shop API và UI; coin nhiều không vượt gate.
+- Mỗi 3 egg: +10 điểm phần trăm thu nhập toy, tối đa +100% tại 30 egg. Không sinh coin từ mảnh vỡ, không nhân thêm theo sao. Pool ưu tiên toy chưa có nếu còn trong shuffle bag; first Basic nhận Dino thay vì duplicate Bunny.
+- Tool Shop (nút TOOLS): Soft Hammer tăng tap power +25%/level; Cocoa Gloves tăng charge speed +20%/level; Warm Cloth tăng melt speed +25%/level. Max level 5, mua bằng coin, tự áp dụng. Chỉ mua/nâng trong Shop, không khi cracking/reward. SIMPLE vẫn 6 tap. Giá và chi tiết: `docs/IDLE_DESIGN.md`.
+- `IdleSave`: lưu coin, toy counts, tool levels, egg milestones; autosave 15s và khi mua/hoàn tất/pause/quit; backup file và kiểm tra dữ liệu trước restore. Offline income tối đa 4 giờ, clock quay ngược không trừ coin. Thoát giữa egg thì hoàn lại giá mua, không tặng toy; chưa resume phần đã đập.
+- Save tại `Application.persistentDataPath/egbreak-progress-v1.json`. Batch tests mặc định không load/save dữ liệu người chơi. Tests ghi file qua override riêng trong `/tmp/egbreak-idle-save-verification`.
+- Kiểm tra mới: **93 idle/save checks + 95 material gameplay checks + 32 optical checks PASS**, zero captured errors. Có test file hỏng fallback backup, gate đúng mốc, cap tool, coin chính xác, offline 60s/4h/backward clock và unfinished-egg refund. Expected warning xuất hiện khi cố tình làm hỏng file save trong test.
+- Gate bypass chỉ nằm trong UNITY_EDITOR và chỉ được bật bởi hai suite cũ để chúng kiểm tra material/render; idle suite kiểm tra gate thật.
+- Artifact mới: `Benchmarks/ToyEconomy/IdleProgression/`. Editor egbreak đã Play Mode thường, UI gates và Tools hoạt động; quan sát phiên chơi đạt 4 egg, mở Chocolate và bonus +10%. Không bơm test coin vào phiên thường.
+- Chưa có model/animation dụng cụ cầm tay, tool icons/art cuối, garden 3D, toy designs mới, cloud save, localization hay profiling điện thoại. Balance mới là bản thử, chưa playtest với trẻ. UI hiện vẫn tiếng Anh.
+
+Các mục cũ nói chưa có save/offline/progression gates là lịch sử, đã được bổ sung ở mục này. Giữ các optics/depth/cut-face fixes trước đó.

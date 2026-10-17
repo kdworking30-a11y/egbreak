@@ -543,3 +543,9 @@ Có material bề mặt/mặt cắt riêng, biến dạng nhẹ và vết gãy k
 Đã qua 21 kiểm tra render có đối chiếu ảnh bật/tắt từng hiệu ứng và 95 kiểm tra gameplay với bộ render mới, không ghi nhận lỗi runtime. Đây là phản chiếu môi trường baked cubemap và khúc xạ screen-space; chưa mô phỏng ray tracing hoặc các lớp kính lồng nhau. Vẫn cần đo hiệu năng trên điện thoại.
 
 Ảnh và báo cáo mới: `OpticalMaterials/Validation` trong workspace; `Benchmarks/ToyEconomy/Optics` trong Unity project. Các ghi chú cũ nói “chưa có refraction” được thay thế bởi cập nhật này.
+
+## 17. Idle progression và tool shop đã triển khai (18/10/2026)
+
+Thiết kế và thông số hiện hành nằm ở [IDLE_DESIGN.md](IDLE_DESIGN.md). Hoàn tất 3/6/10 egg mở Chocolate/Ice/Crystal; mỗi 3 egg tăng 10 điểm phần trăm thu nhập vườn (cap +100%). Có búa, găng chocolate và khăn ấm mua bằng coin, nâng tối đa 5 cấp và tự áp dụng. Toy chưa sở hữu được ưu tiên trong pool. Lưu tiến trình local, backup và offline income cap 4 giờ; egg chưa mở xong được hoàn giá mua khi khôi phục.
+
+Đây là bản cân bằng thử, chưa phải kết quả playtest cho độ tuổi cụ thể. Không thêm tiền thật hoặc daily-streak pressure. Còn cần art/model tool, garden trực quan, toy mới, localization và device profiling.

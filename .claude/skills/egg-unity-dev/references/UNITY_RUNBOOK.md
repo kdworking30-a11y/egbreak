@@ -99,3 +99,11 @@ Create `MaterialPropertyBlock`, textures and other Unity native objects in `Awak
 Keep source and `.meta` together. Save validation artifacts to a new or clearly updated folder under `Benchmarks/ToyEconomy`; don't present historical 417-check tap tests as validation of new hold/rub code. Reopen normal Play Mode without a verification hook/test coin injection for user review. Update the handoff with real results and remaining gaps.
 
 Skill format/invocation reference, checked 17/10/2026: [Claude Code skills](https://code.claude.com/docs/en/skills).
+
+## Idle progression verification
+
+Run `ToyEconomy.Editor.IdleProgressionBatch.Run` in the isolated batch project. Report: `/tmp/idle-progression-verification.json`; three `/tmp/idle-*.png` captures. Latest run: 93 checks. The harness disables player saves by default and exercises disk IO via an explicit `/tmp/egbreak-idle-save-verification` override.
+
+Material and optical suites now set `Progression.VerificationBypass=true` in Editor only to exercise their original four eggs without grinding milestones. The dedicated idle suite tests real gates. Do not enable this bypass in a player's normal session. Tool levels remain zero in those two regression suites.
+
+Normal Play Mode now persists real player progress and credits offline income (cap 4h). Avoid mixing injected test coins with ordinary saves. Never delete player progress just to restore a clean screenshot. Scene rebuild is unnecessary; idle UI and managers initialize at runtime.
